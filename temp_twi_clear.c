@@ -1,5 +1,16 @@
 // опрашивает датчик температуры по twi и печатает по usart
 
+/* 
+
+	asf requirements:
+		-- system clock control (service)
+		-- USART - serial interface (service)
+		-- TWI - Two-Wire Interface (Common API) (service)
+		-- TWI - Two-Wire Interface (driver) (both)
+		-- IOPORT - Input/Output Port Controller (driver)
+
+*/
+
 #include <asf.h>
 #include <avr/delay.h>
 #include <string.h>
