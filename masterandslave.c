@@ -229,7 +229,7 @@ int get_temp8() {
 
 
 // test func to pretty syntax send from master
-status_code_t twi_master_send(int slave_addr, int data) {
+status_code_t pretty_twi_master_send(int slave_addr, int data) {
 	twi_package_t packet = {
 		.addr_length = 0,
 		.chip        = slave_addr,
@@ -243,7 +243,7 @@ status_code_t twi_master_send(int slave_addr, int data) {
 
 
 // test func to pretty syntax to master read
-status_code_t twi_master_read(int slave_addr, int var_to_read) {
+status_code_t pretty_twi_master_read(int slave_addr, int var_to_read) {
 	twi_package_t packet = {
 		.addr_length = 0,
 		.chip        = slave_addr,
@@ -259,10 +259,10 @@ status_code_t twi_master_read(int slave_addr, int var_to_read) {
 static void test_twi() {
 	uint8_t buff[0]; // var to get data from slave
 	
-	twi_master_send(TWI_SLAVE_ADDR, {0x00});
-	twi_master_read(TWI_SLAVE_ADDR, buff);
+	pretty_twi_master_send(TWI_SLAVE_ADDR, 0x00);
+	pretty_twi_master_read(TWI_SLAVE_ADDR, buff);
 	
-	convert_num_to_char(buff[0])
+	convert_num_to_char(buff[0]);
 }
 
 
